@@ -22,13 +22,10 @@ module hole_circle(r, n, shift=0) {
     }
 }
 
-rotate([180, 0, 0]) {
-    difference() {
-        cylinder(h=5, r=40);
-        hole();
-        hole_circle(r=35, n=12);
-        hole_circle(r=30, n=12, shift=0.5);
-        hole_circle(r=20, n=12);
-        hole_circle(r=10, n=6, shift=0.25);
+difference() {
+    union() {
+        cylinder(h=5, r=10);
+        cylinder(h=15, r1=2, r2=1, $fn=6);
     }
+    hole_circle(r=6.5, n=6);
 }
